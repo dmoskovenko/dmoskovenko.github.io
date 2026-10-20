@@ -172,19 +172,19 @@
           var showOrder = Lampa.Storage.get(STORAGE_ORDER_KEY, LANGS.slice());
           var hiddenLangs = Lampa.Storage.get(STORAGE_HIDDEN_KEY, []);
           var originCountry = (card.origin_country || [])[0] || '';
-          var lines = ['<div style="font-size:1.25em;">' + orig + ' ' + countryFlag(originCountry) + '</div>'];
+          var lines = ['<div>' + orig + ' ' + countryFlag(originCountry) + '</div>'];
           var langFlags = { ru: 'RU', en: 'US', uk: 'UA', be: 'BY' };
           var langVals = { en: en, uk: uk, be: be, ru: ru };
 
           showOrder.forEach(function (lang) {
             if (hiddenLangs.indexOf(lang) !== -1) return;
             var val = lang === 'tl' ? translit : langVals[lang];
-            if (val) lines.push('<div style="font-size:1.25em;">' + val + ' ' + countryFlag(langFlags[lang]) + '</div>');
+            if (val) lines.push('<div>' + val + ' ' + countryFlag(langFlags[lang]) + '</div>');
           });
 
-          $('.full-start-new__title', render).after(
-            '<div class="original_title" style="margin-bottom:7px;text-align:left;"><div>'
-            + lines.join('') + '</div></div>'
+          $('.full-start-new__head', render).append(
+            '<div class="original_title english-title">'
+            + lines.join('') + '</div>'
           );
         }
 
