@@ -183,7 +183,7 @@
           });
 
           $('.full-start-new__title', render).before(
-            '<div class="original_title" style="margin:0 0 0.5em;text-align:left;font-size:1.1em;line-height:1.1;opacity:0.6;">'
+            '<div class="original_title english-title" style="margin:0 0 0.5em;text-align:left;line-height:1.1;">'
             + lines.join('') + '</div>'
           );
         }
